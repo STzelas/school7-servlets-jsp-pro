@@ -10,4 +10,7 @@
     padding-left: 10rem;
     text-align: left;
     min-height: 15vh;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
