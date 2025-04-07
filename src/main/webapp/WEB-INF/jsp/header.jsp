@@ -8,7 +8,7 @@
 <body>
 
 <header>
-    <div class="outer">
+    <div class="outer border-blue">
         <div class="items">
             <a href=""><img class="gov-gr-logo" src="${pageContext.request.contextPath}/img/gov_header_logo.svg" alt="" width="40" height="auto"></a>
             <span class="title">Coding Factory - Education Reinvented </span>
@@ -21,9 +21,6 @@
                 <a class="log-out" href="${pageContext.request.contextPath}/logout">Έξοδος</a>
             </c:if>
         </div>
-    </div>
-    <div class="line">
-
     </div>
 </header>
 </body>

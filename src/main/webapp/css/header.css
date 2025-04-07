@@ -45,13 +45,20 @@
     cursor: pointer;
 }
 
+
 .login-name > span {
     margin-right: 15px;
 }
 
+/*
 .line {
     background-color: var(--color-blue-300);
     height: 8px;
+}
+*/
+
+.border-blue {
+  border-bottom: 8px solid var(--color-blue-300);
 }
 
 .title, .login-name {
