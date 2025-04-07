@@ -4,6 +4,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -18,7 +19,7 @@
 <%--            <span>${sessionScope.lastname</span>--%>
             <span>${sessionScope.username}</span>
             <c:if test="${sessionScope.username != null}">
-                <a class="log-out" href="${pageContext.request.contextPath}/logout">Έξοδος</a>
+                <a href="${pageContext.request.contextPath}/logout"><button type="button" class="btn btn-danger">Log out</button></a>
             </c:if>
         </div>
     </div>
