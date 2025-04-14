@@ -13,42 +13,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+
+                    }
+                }
+            }
+        </script>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
 
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row">
-                    <h1 class="text-grey">Login</h1>
-                    <div style="color: red;">${error}</div>
-                </div>
-                <div class=container>
+    <div class="w-full max-w-sm mx-auto my-auto overflow-hidden bg-white rounded-lg shadow-md">
+        <div class="px-6 py-4">
+      
+            <h3 class="mt-3 text-xl font-medium text-center text-gray-600">Welcome Back</h3>
+      
+            <p class="mt-1 text-center text-gray-500 ">Login or create account</p>
+      
+            <form method="POST" action="${pageContext.request.contextPath}/login">
+                <div class="w-full mt-4">
+                    <input class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300" type="email" name="username" placeholder="Email Address" aria-label="Email Address"/>
                     <c:if test="${requestScope.isError == 'true'}">
-                        <p style="color: red">Login Error</p>
-                    </c:if>
+                              <p style="color: red">Login Error</p>
+                          </c:if>
                 </div>
-                <form method="POST" action="${pageContext.request.contextPath}/login">
-                    <div class="row">
-                        <input type="email" name="username" required placeholder="E-mail">
-                        <span></span>
-                    </div>
-                    <div class="row">
-                        <input type="password" name="password" required placeholder="Password">
-                        <span></span>
-                    </div>
-                    <div class="row">
-                        <button type="submit">Sign In</button>
-                    </div>
-                </form>
-                <div class="row text-grey">
-                    <a href="#">Lost your password?</a>
+      
+                <div class="w-full mt-4">
+                    <input class="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300" type="password" name="password" placeholder="Password" aria-label="Password" />
                 </div>
-            </div>
-            <div class="row">
-                <p>Don't have an account? <a href="${pageContext.request.contextPath}/register">Sign up here!</a></p>
-            </div>
+      
+                <div class="flex items-center justify-between mt-4">
+                    <a href="#" class="text-sm text-gray-600  hover:text-gray-500">Forget Password?</a>
+      
+                    <button type="submit" class="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                        Sign In
+                    </button>
+                </div>
+            </form>
         </div>
+      
+        <div class="flex items-center justify-center py-4 text-center bg-gray-50">
+            <span class="text-sm text-gray-600 ">Don't have an account? </span>
+      
+            <a href="${pageContext.request.contextPath}/register" class="mx-2 text-sm font-bold text-blue-500 hover:underline">Register</a>
+        </div>
+    </div>
 
     <%@include file="footer.jsp"%>
 </body>
