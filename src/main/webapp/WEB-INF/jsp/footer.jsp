@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <footer class="bg-gray-200 bottom-0">
+    <footer class="bg-gray-200 bottom-0 fixed w-full">
         <div class="container px-6 py-8 mx-auto">
             <div class="flex flex-col items-center text-center">
                 <a href="${pageContext.request.contextPath}/index.jsp">
