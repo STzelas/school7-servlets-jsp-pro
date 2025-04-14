@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
