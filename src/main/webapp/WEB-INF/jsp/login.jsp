@@ -27,6 +27,7 @@
 <body>
 	<%@ include file="header.jsp"%>
 
+   <div class="flex justify-center items-center mt-20 w-full">
     <div class="w-full max-w-sm mx-auto my-auto overflow-hidden bg-white rounded-lg shadow-md">
         <div class="px-6 py-4">
       
@@ -61,6 +62,7 @@
       
             <a href="${pageContext.request.contextPath}/register" class="mx-2 text-sm font-bold text-blue-500 hover:underline">Register</a>
         </div>
+     </div>
     </div>
 
     <%@include file="footer.jsp"%>
