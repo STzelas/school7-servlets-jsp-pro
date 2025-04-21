@@ -54,6 +54,10 @@
 
         <a href="#" class="text-white hover:text-blue-100 px-3 py-2 rounded-md text-lg font-medium">Πληροφορίες</a>
         <a href="#" class="text-white hover:text-blue-100 px-3 py-2 rounded-md text-lg font-medium">Επικοινωνία</a>
+        <c:if test="${sessionScope.username == null}">
+                <div class="pl-20 flex justify-between items-center">
+                     <a href="${pageContext.request.contextPath}/login"><button type="button" class="bg-blue-dark hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg ml-5">Log In</button></a>
+                  </c:if>
         <c:if test="${sessionScope.username != null}">
         <div class="pl-20 flex justify-between items-center">
           <span class="text-white px-1 py-2 rounded-md text-lg font-medium">${sessionScope.firstname}</span>
