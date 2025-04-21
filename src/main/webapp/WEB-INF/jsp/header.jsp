@@ -97,6 +97,8 @@
     </div>
   </nav>
 </header>
+
+   <script src="${pageContext.request.contextPath}/js/header.js"></script>
 </body>
 </html>
 
