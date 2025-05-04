@@ -47,7 +47,7 @@
           </a>
           <!-- Submenu -->
           <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md w-40">
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-300 hover:rounded-md">Καθηγητές</a>
+            <a href="${pageContext.request.contextPath}/school-app/teachers/view" class="block px-4 py-2 text-gray-700 hover:bg-gray-300 hover:rounded-md">Καθηγητές</a>
             <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-300 hover:rounded-md">Μαθητές</a>
           </div>
         </div>
@@ -85,7 +85,7 @@
           </svg>
         </button>
         <div id="submenu" class="hidden ml-4 mt-2">
-          <a href="#" class="block text-white hover:text-blue-200 py-1">Καθηγητές</a>
+          <a href="${pageContext.request.contextPath}/school-app/teachers/view" class="block text-white hover:text-blue-200 py-1">Καθηγητές</a>
           <a href="#" class="block text-white hover:text-blue-200 py-1">Μαθητές</a>
         </div>
       </div>
