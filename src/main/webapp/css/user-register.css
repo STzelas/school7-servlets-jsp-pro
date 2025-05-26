@@ -11,6 +11,10 @@
     width: 80vw;
 }
 
+body {
+ min-height: 100vh;
+}
+
 .form {
     display: flex;
     place-content: center;
