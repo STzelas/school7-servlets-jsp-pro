@@ -18,24 +18,26 @@
 <%@ include file="header.jsp"%>
 
 
-<section class="container px-4 mx-auto">
+<section class="container px-4 mx-auto w-full">
 
 
 
     <div class="flex flex-col mt-6">
         <div class="-mx-4 -my-2 overflow-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block py-2 align-middle md:px-6 lg:px-8">
-                <div class="overflow-hidden border border-gray-200 md:rounded-lg">
+                <div class="border border-gray-200 md:rounded-lg">
                     <table class="divide-y divide-gray-200">
                     <c:if test="${sessionScope.role == 'ADMIN'}">
-                            <div class="m-bottom">
-                                <a href="${pageContext.request.contextPath}/school-app/teachers/insert">Εισαγωγή Καθηγητή</a>
+                            <div class="pl-5 pt-6 bottom-1">
+                                <a href="${pageContext.request.contextPath}/school-app/teachers/insert">
+                                    <button type="button" class="bg-blue-800 hover:bg-blue-900 text-white font-semibold py-2 px-4 rounded-lg mt-3">Εισαγωγή</button>
+                                </a>
                             </div>
                     </c:if>
                         <thead class="bg-gray-50">
                             <p class="text-red-500 font-semibold">${requestScope.message}</p>
                             <tr>
-                                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left text-white border">
+                                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left text-white">
                                     <div class="flex gap-x-3">
                                         <input type="" class="text-blue-500 border-gray-300 rounded">
                                         <span>Name</span>
@@ -77,9 +79,14 @@
                                 </td>
                                 <td class="px-12 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                                     <div class="inline-flex px-3 py-1 rounded-full gap-x-2 bg-emerald-100/60">
+                                    <c:if test="${sessionScope.role == 'ADMIN'}">
                                         <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-
                                         <h2 class="text-sm font-normal text-emerald-500">Teacher</h2>
+                                    </c:if>
+                                    <c:if test="${sessionScope.role == 'READER'}">
+                                        <span class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>
+                                        <h2 class="text-sm font-normal text-blue-500">Student</h2>
+                                    </c:if>
                                     </div>
                                 </td>
                                 <td class="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">${teacher.email}</td>
