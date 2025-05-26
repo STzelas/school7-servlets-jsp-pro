@@ -10,6 +10,7 @@
 <head>
     <title>Εγγραφή Χρήστη</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/user-register.css">
 </head>
 <body>
 <%@ include file="header.jsp"%>
