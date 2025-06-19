@@ -17,6 +17,24 @@
 
 <div class="bg-white flex justify-center items-center mt-20 w-full">
     <div class="container flex flex-col items-center justify-center px-6 mx-auto">
+    <div class="text-center">
+                <h2 class="mt-6 text-3xl font-bold text-gray-900">Εγγραφή Χρήστη</h2>
+                <p class="mt-2 text-sm text-gray-600">Δημιουργήστε έναν νέο λογαριασμό</p>
+            </div>
+    <c:if test="${not empty requestScope.errorMessage}">
+        <div class="rounded-md bg-red-50 p-4 mb-4">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <p class="text-sm font-medium text-red-800">${requestScope.errorMessage}</p>
+                </div>
+            </div>
+        </div>
+    </c:if>
     <%--<form method="POST" action="${pageContext.request.contextPath}/register">--%>
         <form method="POST" class="w-full max-w-md">
             <div class="relative flex items-center mt-8">
@@ -28,9 +46,9 @@
 
                 <input type="email" name="username" value="${requestScope.userRegisterDTO.username}" class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"required placeholder="Όνομα λογαριασμού">
             </div>
-            <div class="px-2 py-1 text-red-600 hidden">
-              <p>${requestScope.usernameMessage}</p>
-            </div>
+            <c:if test="${not empty requestScope.usernameMessage}">
+                <p class="mt-2 text-sm text-red-600">${requestScope.usernameMessage}</p>
+            </c:if>
 
             <div class="relative flex items-center mt-4">
                 <span class="absolute">
@@ -40,6 +58,9 @@
                 </span>
 
                 <input type="password" name="password" value="${requestScope.userRegisterDTO.password}" class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" required placeholder="Κωδικός">
+            <c:if test="${not empty requestScope.passwordMessage}">
+                <p class="mt-2 text-sm text-red-600">${requestScope.passwordMessage}</p>
+            </c:if>
             </div>
             <div class="px-2 py-1 text-red-600 hidden">
               <p>${requestScope.passwordMessage}</p>
@@ -53,6 +74,9 @@
                 </span>
 
                 <input type="password" name="confirmPassword" value="${requestScope.userRegisterDTO.confirmPassword}" class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" required placeholder="Επιβεβαίωση Κωδικού">
+                <c:if test="${not empty requestScope.confirmPasswordMessage}">
+                    <p class="mt-2 text-sm text-red-600">${requestScope.confirmPasswordMessage}</p>
+                </c:if>
             </div>
             <div class="px-2 py-1 text-red-600 hidden">
               <p>${requestScope.confirmPasswordMessage}</p>
@@ -64,7 +88,9 @@
                   <option value="ADMIN" class="">Διαχειριστής</option>
                   <option value="LIGHT_ADMIN">Βοηθός Διαχειριστή</option>
               </select>
-              <p class="px-2 py-1 text-red-600">${requestScope.roleMessage}</p>
+              <c:if test="${not empty requestScope.roleMessage}">
+                  <p class="mt-2 text-sm text-red-600">${requestScope.roleMessage}</p>
+              </c:if>
             </div>
 
             <div class="mt-6 flex flex-col items-center">
@@ -86,7 +112,7 @@
         </form>
         <a href="${pageContext.request.contextPath}/login">
             <button class="w-25 px-6 py-3 mt-4 text-sm font-medium tracking-wide capitalize transition-colors duration-300 transform bg-gray-200 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 ">
-              Πίσω
+              Επιστροφή στη σελίδα εισόδου
             </button>
         </a>
     </div>
