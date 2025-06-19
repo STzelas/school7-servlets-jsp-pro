@@ -36,7 +36,7 @@
                <p>${requestScope.error}</p>
             </div>
         </c:if>
-            <h3 class="mt-3 text-xl font-medium text-center text-gray-600">Καλώς ορίσατε</h3>
+            <h3 class="mt-3 text-2xl font-semibold text-center">Καλώς ορίσατε</h3>
 
             <p class="mt-1 text-center text-gray-500 ">Συνδεθείτε ή δημιουργήστε λογαριασμό</p>
 
