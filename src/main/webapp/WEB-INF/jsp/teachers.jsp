@@ -10,130 +10,159 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Προβολή Καθηγητών</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/teachers.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                        },
+                        success: {
+                            500: '#10b981',
+                            600: '#059669',
+                        },
+                        warning: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        danger: {
+                            500: '#ef4444',
+                            600: '#dc2626',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="bg-gray-50 min-h-screen flex flex-col">
 <%@ include file="header.jsp"%>
+<main class="flex-grow container mx-auto px-4 py-8">
 
-
-<section class="px-4 mb-5">
-    <div class="flex flex-col mt-6">
-        <div class="-mx-4 -my-2 mx-auto">
-        <div class="flex gap-x-2">
-            <c:if test="${sessionScope.role == 'ADMIN'}">
-                <div class="pl-5 pt-4 bottom-1">
-                    <a href="${pageContext.request.contextPath}/school-app/teachers/insert">
-                        <button type="button" class="bg-blue-800 hover:bg-blue-900 text-white font-semibold py-2 px-4 rounded-lg mt-3">Εισαγωγή Καθηγητή</button>
-                    </a>
-                    <input placeholder="Αναζήτηση Καθηγητή" type="" class="border border-gray-300 text-blue-500 border-gray-300 rounded p-2">
-                </div>
-            </c:if>
+    <!-- Page Header -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+        <div>
+            <h1 class="text-2xl font-bold text-gray-800">Καθηγητές</h1>
+            <p class="text-gray-600">Διαχείριση και προβολή καθηγητών</p>
         </div>
-            <div class="inline-block py-2 align-middle ">
-                <div class="border border-gray-200">
-                    <table class="divide-y divide-gray-200 min-w-full">
-                        <thead class="bg-gray-50">
-                            <p class="text-red-500 font-semibold">${requestScope.message}</p>
-                            <tr>
-                                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-center text-white">
-                                    <div class="">
-                                        <span>Name</span>
-                                    </div>
-                                </th>
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left text-white">
-                                    <button class="flex gap-x-1">
-                                        <span>Role</span>
+        <c:if test="${sessionScope.role == 'ADMIN'}">
+            <a href="${pageContext.request.contextPath}/school-app/teachers/insert"
+               class="inline-flex items-center px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg transition-colors duration-200 shadow-sm">
+                <i class="fas fa-plus mr-2"></i>
+                Εισαγωγή Καθηγητή
+            </a>
+        </c:if>
+    </div>
 
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-                                        </svg>
-                                    </button>
-                                </th>
-
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left text-white">Email</th>
-
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left text-white">Ενέργειες</th>
-
-                                <th scope="col" class="relative py-3.5 px-4">
-                                    <span class="sr-only">Edit</span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <c:forEach var = "teacher" items = "${requestScope.teachers}">
-                        <tbody class="bg-white divide-y divide-gray-200">
-                            <tr>
-                                <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                    <div class="gap-x-3">
-                                        <div class="gap-x-2">
-                                            <div>
-                                                <h2 class="font-medium text-gray-800">${teacher.firstname} ${teacher.lastname}</h2>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-12 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                                    <div class="inline-flex px-3 py-1 rounded-full gap-x-2 bg-emerald-100/60">
-                                    <c:if test="${sessionScope.role == 'ADMIN'}">
-                                        <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-                                        <h2 class="text-sm font-normal text-emerald-500">Teacher</h2>
-                                    </c:if>
-                                    <c:if test="${sessionScope.role == 'READER'}">
-                                        <span class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>
-                                        <h2 class="text-sm font-normal text-blue-500">Student</h2>
-                                    </c:if>
-                                    </div>
-                                </td>
-                                <td class="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">${teacher.email}</td>
-                                <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                    <div class="flex gap-x-6">
-                                        <!-- DELETE -->
-                                        <button class="text-gray-500 transition-colors duration-200 hover:text-red-500 focus:outline-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                                            </svg>
-                                        </button>
-                                        <!-- EDIT -->
-                                        <button class="text-gray-500 transition-colors duration-200 hover:text-yellow-500 focus:outline-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            </c:forEach>
-
-                        </tbody>
-                    </table>
+    <!-- Search Card -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-8">
+        <div class="p-6">
+            <h2 class="text-lg font-semibold text-gray-800 mb-4">Αναζήτηση Καθηγητών</h2>
+            <form id="filterForm" method="GET" action="${pageContext.request.contextPath}/school-app/teachers/view" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <label for="firstname" class="block text-sm font-medium text-gray-700 mb-1">Όνομα</label>
+                    <input type="text" name="firstname" id="firstname" placeholder="Όνομα"
+                           class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-150" />
                 </div>
-            </div>
+                <div>
+                    <label for="lastname" class="block text-sm font-medium text-gray-700 mb-1">Επώνυμο</label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Επώνυμο"
+                           class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition duration-150" />
+                </div>
+                <div class="flex items-end space-x-2 md:col-span-2">
+                    <button id="submitBtn" type="submit"
+                            class="flex-1 inline-flex justify-center items-center px-4 py-2 bg-success-500 hover:bg-success-600 text-white font-medium rounded-lg transition-colors duration-200 shadow-sm">
+                        <i class="fas fa-search mr-2"></i>
+                        Αναζήτηση
+                    </button>
+                    <button id="resetBtn" type="button" onclick="reset()"
+                            class="flex-1 inline-flex justify-center items-center px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium rounded-lg transition-colors duration-200 shadow-sm">
+                        <i class="fas fa-undo mr-2"></i>
+                        Επαναφορά
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 
+    <!-- Results Section -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Κωδικος</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ονομα</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Επωνυμο</th>
+                        <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Πραξεις</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <c:choose>
+                        <c:when test="${not empty requestScope.teachers}">
+                            <c:forEach var="teacher" items="${requestScope.teachers}">
+                                <tr class="hover:bg-gray-50 transition-colors duration-150">
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${teacher.id}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${teacher.firstname}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${teacher.lastname}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">
+                                        <div class="flex justify-end space-x-3">
+                                            <a href="${pageContext.request.contextPath}/school-app/teachers/view?id=${teacher.id}"
+                                               class="text-primary-500 hover:text-primary-600 p-1 rounded-full hover:bg-primary-50 transition-colors duration-200"
+                                               title="Προβολή">
+                                                <i class="fas fa-eye w-5 h-5"></i>
+                                            </a>
+                                            <a href="${pageContext.request.contextPath}/school-app/teachers/update?id=${teacher.id}"
+                                               class="text-warning-500 hover:text-warning-600 p-1 rounded-full hover:bg-warning-50 transition-colors duration-200"
+                                               title="Επεξεργασία">
+                                                <i class="fas fa-pen-to-square w-5 h-5"></i>
+                                            </a>
+                                            <a href="${pageContext.request.contextPath}/school-app/teachers/delete?id=${teacher.id}"
+                                               onclick="return confirm('Είστε βέβαιοι ότι θέλετε να διαγράψετε τον καθηγητή;')"
+                                               class="text-danger-500 hover:text-danger-600 p-1 rounded-full hover:bg-danger-50 transition-colors duration-200"
+                                               title="Διαγραφή">
+                                                <i class="fas fa-trash-can w-5 h-5"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <tr>
+                                <td colspan="4" class="px-6 py-4 text-center text-sm text-gray-500">
+                                    Δεν βρέθηκαν καθηγητές
+                                </td>
+                            </tr>
+                        </c:otherwise>
+                    </c:choose>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-</section>
-
-<div>
-<%--    <c:if test="${requestScope.deleteAPIError}">--%>
-        <p>${requestScope.message}</p>
-<%--    </c:if>--%>
-</div>
-
-<div>
-    <c:if test="${requestScope.updateAPIError}">
-        <p>Something went wrong in Update</p>
+    <!-- Messages -->
+    <c:if test="${not empty requestScope.message}">
+        <div class="mt-6">
+            <div class="${requestScope.message.contains('επιτυχ') ? 'bg-success-50 border-success-200 text-success-700' : 'bg-danger-50 border-danger-200 text-danger-700'} border rounded-lg p-4">
+                <div class="flex items-center">
+                    <i class="${requestScope.message.contains('επιτυχ') ? 'fas fa-check-circle text-success-500' : 'fas fa-exclamation-circle text-danger-500'} mr-2"></i>
+                    <span class="font-medium">${requestScope.message}</span>
+                </div>
+            </div>
+        </div>
     </c:if>
-</div>
+</main>
 
 <%@ include file="footer.jsp"%>
 
-<script src="${pageContext.request.contextPath}/js/teachers.js">
-
-</script>
+<script src="${pageContext.request.contextPath}/js/teachers.js"></script>
 </body>
 </html>
-
-
