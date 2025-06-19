@@ -18,7 +18,7 @@
 <div class="bg-white flex justify-center items-center mt-20 w-full">
     <div class="container flex flex-col items-center justify-center px-6 mx-auto">
     <div class="text-center">
-                <h2 class="mt-6 text-3xl font-bold text-gray-900">Εγγραφή Χρήστη</h2>
+                <h3 class="mt-3 text-2xl font-semibold text-center">Εγγραφή Χρήστη</h3>
                 <p class="mt-2 text-sm text-gray-600">Δημιουργήστε έναν νέο λογαριασμό</p>
             </div>
     <c:if test="${not empty requestScope.errorMessage}">
