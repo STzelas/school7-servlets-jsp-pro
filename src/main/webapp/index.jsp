@@ -6,17 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Central Service</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+    <script src="https://cdn.tailwindcss.com"></script
 </head>
-<body>
+<body class="min-h-screen">
 
 <%@ include file="/WEB-INF/jsp/header.jsp" %>
 
 <!-- Main Content -->
-<main class="container text-center my-5 main-content">
-    <h1 class="mb-5">Κεντρική Υπηρεσία Coding Factory</h1>
-    <a href="${pageContext.request.contextPath}/login" class="custom-button-green">Συνέχεια</a>
+<main class="text-center main-content my-20">
+    <h1 class="mb-5 text-3xl font-semibold ">Κεντρική Υπηρεσία Διαχείρισης Καθηγητών</h1>
+    <c:if test="${sessionScope.username != null}">
+    <button class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded mt-10 text-white">
+        <a href="${pageContext.request.contextPath}/school-app/dashboard" >Συνέχεια</a>
+    </button>
+     </c:if>
+     <c:if test="${sessionScope.username == null}">
+     <button class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded mt-10 text-white">
+         <a href="${pageContext.request.contextPath}/login" >Σύνδεση</a>
+     </button>
+     </c:if>
+
 </main>
 
 <%@ include file="/WEB-INF/jsp/footer.jsp" %>
