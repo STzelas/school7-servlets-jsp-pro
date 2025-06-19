@@ -75,18 +75,20 @@
 
 
                 <div class="mt-6 text-center ">
-                    <a href="#" class="text-sm text-blue-500 hover:underline">
+                    <a href="${pageContext.request.contextPath}/login" class="text-sm text-blue-500 hover:underline">
                         Έχετε ήδη λογαριασμό?
                     </a>
                 </div>
                 <div>
-                        ${requestScope.errorMessage}
-                    </div>
+                    ${requestScope.errorMessage}
+                </div>
             </div>
         </form>
-        <a href="${pageContext.request.contextPath}/login"><button class="w-25 px-6 py-3 mt-4 text-sm font-medium tracking-wide capitalize transition-colors duration-300 transform bg-gray-200 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 ">
-                                          Πίσω
-                                      </button></a>
+        <a href="${pageContext.request.contextPath}/login">
+            <button class="w-25 px-6 py-3 mt-4 text-sm font-medium tracking-wide capitalize transition-colors duration-300 transform bg-gray-200 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 ">
+              Πίσω
+            </button>
+        </a>
     </div>
   </div>
 
