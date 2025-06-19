@@ -25,7 +25,8 @@
                 <button type="button" class="bg-green-800 hover:bg-green-900 text-white font-semibold py-2 px-4 rounded-lg mt-6">Υπηρεσία Καθηγητών</button>
             </a>
             <a href="<c:url value='${pageContext.request.contextPath}/school-app/students/view' />">
-                <button type="button" class="bg-green-800 hover:bg-green-900 text-white font-semibold py-2 px-4 rounded-lg mt-3">Υπηρεσία Μαθητών</button>
+                <button type="button" class="bg-gray-300 text-white font-semibold py-2 px-4 rounded-lg mt-3" disabled>Υπηρεσία Μαθητών
+                </button>
             </a>
         </div>
 
