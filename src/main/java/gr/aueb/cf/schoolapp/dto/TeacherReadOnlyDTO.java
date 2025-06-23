@@ -1,7 +1,5 @@
 package gr.aueb.cf.schoolapp.dto;
 
-import lombok.AllArgsConstructor;
-
 
 public class TeacherReadOnlyDTO extends BaseTeacherDTO {
     private Integer id;
