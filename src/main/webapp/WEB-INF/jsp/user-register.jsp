@@ -37,7 +37,7 @@
     </c:if>
     <%--<form method="POST" action="${pageContext.request.contextPath}/register">--%>
         <form method="POST" class="w-full max-w-md">
-            <div class="relative flex items-center mt-8">
+            <div class="relative flex items-center mt-4">
                 <span class="absolute">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-3 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -47,7 +47,7 @@
                 <input type="email" name="username" value="${requestScope.userRegisterDTO.username}" class="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"required placeholder="Όνομα λογαριασμού">
             </div>
             <c:if test="${not empty requestScope.usernameMessage}">
-                <p class="mt-2 text-sm text-red-600">${requestScope.usernameMessage}</p>
+                <p class="p-3 mt-2 bg-red-50 border-l-4 border-red-500 text-red-700 rounded">${requestScope.usernameMessage}</p>
             </c:if>
 
             <div class="relative flex items-center mt-4">
@@ -58,13 +58,11 @@
                 </span>
 
                 <input type="password" name="password" value="${requestScope.userRegisterDTO.password}" class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" required placeholder="Κωδικός">
+
+            </div>
             <c:if test="${not empty requestScope.passwordMessage}">
-                <p class="mt-2 text-sm text-red-600">${requestScope.passwordMessage}</p>
+                <p class="p-3 mt-2 bg-red-50 border-l-4 border-red-500 text-red-700 rounded">${requestScope.passwordMessage}</p>
             </c:if>
-            </div>
-            <div class="px-2 py-1 text-red-600 hidden">
-              <p>${requestScope.passwordMessage}</p>
-            </div>
 
             <div class="relative flex items-center mt-4">
                 <span class="absolute">
@@ -74,13 +72,11 @@
                 </span>
 
                 <input type="password" name="confirmPassword" value="${requestScope.userRegisterDTO.confirmPassword}" class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" required placeholder="Επιβεβαίωση Κωδικού">
-                <c:if test="${not empty requestScope.confirmPasswordMessage}">
-                    <p class="mt-2 text-sm text-red-600">${requestScope.confirmPasswordMessage}</p>
-                </c:if>
+
             </div>
-            <div class="px-2 py-1 text-red-600 hidden">
-              <p>${requestScope.confirmPasswordMessage}</p>
-            </div>
+            <c:if test="${not empty requestScope.confirmPasswordMessage}">
+                <p class="p-3 mt-2 bg-red-50 border-l-4 border-red-500 text-red-700 rounded">${requestScope.confirmPasswordMessage}</p>
+            </c:if>
 
             <div class="row m-botto mt-4">
               <select class="m-bottom p-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-gray-300" name="role">
@@ -111,7 +107,7 @@
             </div>
         </form>
         <a href="${pageContext.request.contextPath}/login">
-            <button class="w-25 px-6 py-3 mt-4 text-sm font-medium tracking-wide capitalize transition-colors duration-300 transform bg-gray-200 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 ">
+            <button class="w-25 px-6 py-3 mt-4 mb-4 text-sm font-medium tracking-wide capitalize transition-colors duration-300 transform bg-gray-200 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 ">
               Επιστροφή στη σελίδα εισόδου
             </button>
         </a>
