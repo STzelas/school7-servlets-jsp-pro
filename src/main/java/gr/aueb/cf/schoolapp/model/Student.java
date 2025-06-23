@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 public class Student {
-    private Long id;
+    private Integer id;
     private String firstname;
     private String lastname;
     private String fatherName;
