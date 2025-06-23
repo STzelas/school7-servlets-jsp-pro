@@ -51,6 +51,7 @@ public class UserRegisterController extends HttpServlet {
         String usernameMessage;
         String passwordMessage;
         String confirmPasswordMessage;
+        String roleMessage;
 
         User user;
 
@@ -62,10 +63,12 @@ public class UserRegisterController extends HttpServlet {
                 usernameMessage = errors.getOrDefault("username", "");
                 passwordMessage = errors.getOrDefault("password", "");
                 confirmPasswordMessage = errors.getOrDefault("confirmPassword", "");
+                roleMessage = errors.getOrDefault("role", "");
 
                 request.setAttribute("usernameMessage", usernameMessage);
                 request.setAttribute("passwordMessage", passwordMessage);
                 request.setAttribute("confirmPasswordMessage", confirmPasswordMessage);
+                request.setAttribute("role", roleMessage);
 
                 request.setAttribute("userRegisterDTO", insertUserDTO);
                 request.getRequestDispatcher("/WEB-INF/jsp/user-register.jsp")
