@@ -2,9 +2,9 @@ package gr.aueb.cf.schoolapp.validator;
 
 import gr.aueb.cf.schoolapp.dao.IUserDAO;
 import gr.aueb.cf.schoolapp.dao.UserDAOImpl;
+import gr.aueb.cf.schoolapp.dto.InsertUserDTO;
 import gr.aueb.cf.schoolapp.exceptions.UserDAOException;
 import gr.aueb.cf.schoolapp.dto.BaseUserDTO;
-import gr.aueb.cf.schoolapp.dto.InsertUserDTO;
 import gr.aueb.cf.schoolapp.service.IUserService;
 import gr.aueb.cf.schoolapp.service.UserServiceImpl;
 
@@ -18,16 +18,16 @@ public class UserValidator<T> {
 
     private UserValidator() {}
 
-    public static <T extends BaseUserDTO> Map<String, String > validate(T dto)
+    public static <T extends InsertUserDTO> Map<String, String > validate(T dto)
             throws UserDAOException {
         Map<String, String> errors = new HashMap<>();
 
-        if (!dto.getPassword().equals(dto.getConfirmedPassword())) {
-            errors.put("confirmPassword", "Το password και το confirmedPassword δεν είναι ίδια.");
+        if (!dto.getPassword().equals(dto.getConfirmPassword())) {
+            errors.put("confirmPassword", "Το password και το confirm password δεν είναι ίδια.");
         }
 
         if (dto.getPassword().length() < 5 || dto.getPassword().length() > 32 ) {
-            errors.put("password", "Το password πρέπει να είναι μεταξύ 5 και 32");
+            errors.put("password", "Το password πρέπει να είναι μεταξύ 5 και 32 χαρακτήρων");
         }
 
         if (dto.getUsername().matches("^.*\\s+.*$")) {
@@ -36,6 +36,10 @@ public class UserValidator<T> {
 
         if (dto.getPassword().matches("^.*\\s+.*$")) {
             errors.put("password", "Το password δεν πρέπει να περιλαμβάνει κενά");
+        }
+
+        if (dto.getRole() == null || dto.getRole().isBlank()) {
+            errors.put("role", "Δεν έχετε επιλέξει ρόλο");
         }
 
         if (userService.isEmailExists(dto.getUsername())) {
