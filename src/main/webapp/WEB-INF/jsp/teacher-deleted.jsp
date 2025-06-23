@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Επιτυχής Εισαγωγή</title>
+    <title>Επιτυχής Διαγραφή</title>
 </head>
 <body class="min-h-screen">
 
