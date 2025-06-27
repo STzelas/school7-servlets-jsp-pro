@@ -29,17 +29,3 @@ body {
     min-height: 60vh;
 }
 
-.custom-button-green {
-    background-color: var(--green-color);
-    color: white;
-    border: none;
-    padding: 1rem 2.5rem;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none; /* Remove underline from links */
-    display: inline-block; /* Allows padding to work correctly on <a> */
-}
-.custom-button-green:hover {
-    background-color: var(--green-color-hover);
-}
-
