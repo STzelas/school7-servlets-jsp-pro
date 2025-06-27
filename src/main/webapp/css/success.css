@@ -15,17 +15,6 @@ body {
     min-height: 100vh;
 }
 
-.success {
-    display: flex;
-    flex-direction: column;
-    place-items: center;
-    width: 50vw;
-    height: 50vh;
-    border: 1px solid black;
-    background-color: var(--green-color);
-    color: var(--light-color);
-}
-
 .m-bottom {
     margin-bottom: 20px;
 }
