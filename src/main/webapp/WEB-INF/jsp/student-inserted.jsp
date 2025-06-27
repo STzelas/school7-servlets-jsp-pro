@@ -17,7 +17,7 @@
 
 <div class="flex justify-center">
     <div class="bg-green-500 shadow-md rounded-lg p-6 mb-8 mt-10 w-1/2">
-        <h1 class="text-center font-semibold text-2xl mt-5 underline">Επιτυχής Ενημέρωση</h1>
+        <h1 class="text-center font-semibold text-2xl mt-5 underline">Επιτυχής Εισαγωγή</h1>
         <p class="text-center text-xl mt-10">Κωδικός:  <strong>${sessionScope.studentInfo.id}</strong> </p>
         <p class="text-center text-xl mt-5">Όνομα:   <strong>${sessionScope.studentInfo.firstname}</strong></p>
         <p class="text-center text-xl mt-5">Επώνυμο:  <strong>${sessionScope.studentInfo.lastname}</strong></p>

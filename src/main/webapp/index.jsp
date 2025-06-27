@@ -14,7 +14,7 @@
 
 <!-- Main Content -->
 <main class="text-center main-content my-20">
-    <h1 class="mb-5 text-3xl font-semibold ">Κεντρική Υπηρεσία Διαχείρισης Καθηγητών</h1>
+    <h1 class="mb-5 text-3xl font-semibold ">Κεντρική Υπηρεσία Διαχείρισης Καθηγητών και Μαθητών</h1>
     <c:if test="${sessionScope.username != null}">
     <button class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded mt-10 text-white">
         <a href="${pageContext.request.contextPath}/school-app/dashboard" >Συνέχεια</a>
